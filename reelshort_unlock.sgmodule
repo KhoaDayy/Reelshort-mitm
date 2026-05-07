@@ -1,0 +1,62 @@
+#!name=ReelShort VIP Unlocker
+#!desc=Unlock all episodes, VIP subscription, and remove ads for ReelShort (v3.7.50+)
+#!author=alya
+#!homepage=https://github.com
+#!icon=https://raw.githubusercontent.com/user/repo/main/icon.png
+#!category=Media
+#!system=ios
+#!version=1.0.0
+
+[General]
+skip-proxy = *.reelshort.com, *.stardustworld.cn, *.stardustgod.com, *.epubgame.com
+
+[Rule]
+# Block ad tracking domains (optional — removes ads entirely)
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-SUFFIX,pangleglobal.com,REJECT
+DOMAIN-SUFFIX,ads.vungle.com,REJECT
+DOMAIN-SUFFIX,ads.mopub.com,REJECT
+DOMAIN-SUFFIX,is.com,REJECT
+DOMAIN-SUFFIX,applovin.com,REJECT
+DOMAIN-SUFFIX,moloco.com,REJECT
+DOMAIN-KEYWORD,mintegral,REJECT
+DOMAIN-KEYWORD,ironsrc,REJECT
+
+[URL Rewrite]
+# Block ad-related API calls
+^https?:\/\/.*pangle\.io\/api\/ad - reject
+^https?:\/\/.*\.vungle\.com - reject
+
+[Map Local]
+
+[Script]
+# === Book/Episode Unlock ===
+ReelShort Chapter List = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getChapterList|comic\/reading\/chapter_list|novel\/reading\/chapter_list|interactiveBook\/getChapterList), requires-body=1, max-size=3145728, script-path=reelshort_unlock.js, timeout=30
+
+ReelShort Book Detail = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getBookDetail|book\/getBookDetailV2|comic\/reading\/detail|novel\/reading\/detail|interactiveBook\/getBookDetail), requires-body=1, max-size=1048576, script-path=reelshort_unlock.js, timeout=30
+
+ReelShort Pay Mode = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/getPayMode, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+
+ReelShort Chapter Content = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getChapterContent|comic\/reading\/chapter_detail|novel\/reading\/chapter_detail|interactiveBook\/getChapterContent), requires-body=1, max-size=3145728, script-path=reelshort_unlock.js, timeout=30
+
+ReelShort Start Play = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/(startPlay|startRead), requires-body=1, max-size=1048576, script-path=reelshort_unlock.js, timeout=30
+
+# === VIP Status Spoofing ===
+ReelShort VIP Status = type=http-response, pattern=^https?:\/\/[^\/]+\/store\/getMyVip, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+
+ReelShort VIP Goods = type=http-response, pattern=^https?:\/\/[^\/]+\/store\/getVipGoods, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+
+# === User Info (Coins + VIP) ===
+ReelShort User Info = type=http-response, pattern=^https?:\/\/[^\/]+\/user\/getUserInfo, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+
+# === Ad Unlock ===
+ReelShort Ad Unlock = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/requestAdvUnlock, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+
+# === Hall/Home Content ===
+ReelShort Hall = type=http-response, pattern=^https?:\/\/[^\/]+\/hall\/(infoV[34]|forYouV[34]|hallWaterfallPages|getBooksByTag|seeAll|continueWatching|getLeaderboard|getRank), requires-body=1, max-size=3145728, script-path=reelshort_unlock.js, timeout=30
+
+# === Exit Retain Popup Block ===
+ReelShort Retain = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/getExitRetain, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+
+[MITM]
+hostname = %APPEND% *.reelshort.com, *.stardustworld.cn, *.stardustgod.com, *.epubgame.com, *-api.stardustworld.cn, *-api.stardustgod.com

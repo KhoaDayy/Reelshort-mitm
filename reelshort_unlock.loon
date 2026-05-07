@@ -1,0 +1,30 @@
+#!name = ReelShort VIP Unlocker
+#!desc = Unlock all episodes, VIP subscription, and remove ads for ReelShort
+#!author = alya
+#!icon = https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/63/45/8c/63458c67-68e3-5eb6-d72f-af82cc6f8a98/AppIcon-0-0-1x_U007ephone-0-0-85-220.png/120x120bb.jpg
+#!homepage = https://github.com
+#!openUrl = 
+#!date = 2026-05-07
+
+[Rule]
+DOMAIN-SUFFIX,pangle.io,REJECT
+DOMAIN-SUFFIX,pangleglobal.com,REJECT
+DOMAIN-SUFFIX,ads.vungle.com,REJECT
+
+[Rewrite]
+^https?:\/\/.*pangle\.io\/api\/ad reject
+
+[Script]
+http-response ^https?:\/\/[^\/]+\/(book\/getChapterList|comic\/reading\/chapter_list|novel\/reading\/chapter_list|interactiveBook\/getChapterList) script-path=reelshort_unlock.js, requires-body=true, tag=RS-ChapterList
+http-response ^https?:\/\/[^\/]+\/(book\/getBookDetail|comic\/reading\/detail|novel\/reading\/detail|interactiveBook\/getBookDetail) script-path=reelshort_unlock.js, requires-body=true, tag=RS-BookDetail
+http-response ^https?:\/\/[^\/]+\/book\/getPayMode script-path=reelshort_unlock.js, requires-body=true, tag=RS-PayMode
+http-response ^https?:\/\/[^\/]+\/(book\/getChapterContent|comic\/reading\/chapter_detail|novel\/reading\/chapter_detail|interactiveBook\/getChapterContent) script-path=reelshort_unlock.js, requires-body=true, tag=RS-ChapterContent
+http-response ^https?:\/\/[^\/]+\/book\/(startPlay|startRead) script-path=reelshort_unlock.js, requires-body=true, tag=RS-StartPlay
+http-response ^https?:\/\/[^\/]+\/store\/getMyVip script-path=reelshort_unlock.js, requires-body=true, tag=RS-VipStatus
+http-response ^https?:\/\/[^\/]+\/user\/getUserInfo script-path=reelshort_unlock.js, requires-body=true, tag=RS-UserInfo
+http-response ^https?:\/\/[^\/]+\/book\/requestAdvUnlock script-path=reelshort_unlock.js, requires-body=true, tag=RS-AdvUnlock
+http-response ^https?:\/\/[^\/]+\/hall\/(infoV[34]|forYouV[34]|hallWaterfallPages|getBooksByTag|seeAll|continueWatching) script-path=reelshort_unlock.js, requires-body=true, tag=RS-Hall
+http-response ^https?:\/\/[^\/]+\/book\/getExitRetain script-path=reelshort_unlock.js, requires-body=true, tag=RS-Retain
+
+[MITM]
+hostname = *.reelshort.com, *.stardustworld.cn, *.stardustgod.com, *.epubgame.com

@@ -1,0 +1,38 @@
+# ReelShort VIP Unlocker — Quantumult X Configuration
+# Add these to your QX config file in the appropriate sections
+
+# === [rewrite_remote] ===
+# https://raw.githubusercontent.com/user/repo/main/reelshort_unlock.qxrewrite, tag=ReelShort VIP Unlocker, update-interval=86400, enabled=true
+
+# === [rewrite_local] ===
+
+# Block ads
+^https?:\/\/.*pangle\.io\/api\/ad url reject
+^https?:\/\/.*\.vungle\.com url reject
+
+# === [task_local] ===
+
+# === [http_backend] ===
+
+# === [mitm] ===
+# hostname = *.reelshort.com, *.stardustworld.cn, *.stardustgod.com, *.epubgame.com
+
+# === [filter_remote] ===
+
+# === [filter_local] ===
+HOST-SUFFIX,pangle.io,REJECT
+HOST-SUFFIX,pangleglobal.com,REJECT
+HOST-SUFFIX,ads.vungle.com,REJECT
+
+# === Script Rewrites ===
+^https?:\/\/[^\/]+\/(book\/getChapterList|comic\/reading\/chapter_list|novel\/reading\/chapter_list|interactiveBook\/getChapterList) url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/(book\/getBookDetail|book\/getBookDetailV2|comic\/reading\/detail|novel\/reading\/detail|interactiveBook\/getBookDetail) url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/book\/getPayMode url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/(book\/getChapterContent|comic\/reading\/chapter_detail|novel\/reading\/chapter_detail|interactiveBook\/getChapterContent) url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/book\/(startPlay|startRead) url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/store\/getMyVip url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/store\/getVipGoods url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/user\/getUserInfo url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/book\/requestAdvUnlock url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/hall\/(infoV[34]|forYouV[34]|hallWaterfallPages|getBooksByTag|seeAll|continueWatching) url script-response-body reelshort_unlock.js
+^https?:\/\/[^\/]+\/book\/getExitRetain url script-response-body reelshort_unlock.js
