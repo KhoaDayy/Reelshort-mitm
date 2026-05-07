@@ -15,16 +15,16 @@ DOMAIN-SUFFIX,ads.vungle.com,REJECT
 ^https?:\/\/.*pangle\.io\/api\/ad reject
 
 [Script]
-http-response ^https?:\/\/[^\/]+\/(book\/getChapterList|comic\/reading\/chapter_list|novel\/reading\/chapter_list|interactiveBook\/getChapterList) script-path=reelshort_unlock.js, requires-body=true, tag=RS-ChapterList
-http-response ^https?:\/\/[^\/]+\/(book\/getBookDetail|comic\/reading\/detail|novel\/reading\/detail|interactiveBook\/getBookDetail) script-path=reelshort_unlock.js, requires-body=true, tag=RS-BookDetail
-http-response ^https?:\/\/[^\/]+\/book\/getPayMode script-path=reelshort_unlock.js, requires-body=true, tag=RS-PayMode
-http-response ^https?:\/\/[^\/]+\/(book\/getChapterContent|comic\/reading\/chapter_detail|novel\/reading\/chapter_detail|interactiveBook\/getChapterContent) script-path=reelshort_unlock.js, requires-body=true, tag=RS-ChapterContent
-http-response ^https?:\/\/[^\/]+\/book\/(startPlay|startRead) script-path=reelshort_unlock.js, requires-body=true, tag=RS-StartPlay
-http-response ^https?:\/\/[^\/]+\/store\/getMyVip script-path=reelshort_unlock.js, requires-body=true, tag=RS-VipStatus
-http-response ^https?:\/\/[^\/]+\/user\/getUserInfo script-path=reelshort_unlock.js, requires-body=true, tag=RS-UserInfo
-http-response ^https?:\/\/[^\/]+\/book\/requestAdvUnlock script-path=reelshort_unlock.js, requires-body=true, tag=RS-AdvUnlock
-http-response ^https?:\/\/[^\/]+\/hall\/(infoV[34]|forYouV[34]|hallWaterfallPages|getBooksByTag|seeAll|continueWatching) script-path=reelshort_unlock.js, requires-body=true, tag=RS-Hall
-http-response ^https?:\/\/[^\/]+\/book\/getExitRetain script-path=reelshort_unlock.js, requires-body=true, tag=RS-Retain
+http-response ^https?:\/\/[^\/]+\/(book\/getChapterList|comic\/reading\/chapter_list|novel\/reading\/chapter_list|interactiveBook\/getChapterList) script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-ChapterList
+http-response ^https?:\/\/[^\/]+\/(book\/getBookDetail|comic\/reading\/detail|novel\/reading\/detail|interactiveBook\/getBookDetail) script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-BookDetail
+http-response ^https?:\/\/[^\/]+\/book\/getPayMode script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-PayMode
+http-response ^https?:\/\/[^\/]+\/(book\/getChapterContent|comic\/reading\/chapter_detail|novel\/reading\/chapter_detail|interactiveBook\/getChapterContent) script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-ChapterContent
+http-response ^https?:\/\/[^\/]+\/book\/(startPlay|startRead) script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-StartPlay
+http-response ^https?:\/\/[^\/]+\/store\/getMyVip script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-VipStatus
+http-response ^https?:\/\/[^\/]+\/user\/getUserInfo script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-UserInfo
+http-response ^https?:\/\/[^\/]+\/book\/requestAdvUnlock script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-AdvUnlock
+http-response ^https?:\/\/[^\/]+\/hall\/(infoV[34]|forYouV[34]|hallWaterfallPages|getBooksByTag|seeAll|continueWatching) script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-Hall
+http-response ^https?:\/\/[^\/]+\/book\/getExitRetain script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, requires-body=true, tag=RS-Retain
 
 [MITM]
 hostname = *.reelshort.com, *.stardustworld.cn, *.stardustgod.com, *.epubgame.com

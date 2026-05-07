@@ -31,32 +31,32 @@ DOMAIN-KEYWORD,ironsrc,REJECT
 
 [Script]
 # === Book/Episode Unlock ===
-ReelShort Chapter List = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getChapterList|comic\/reading\/chapter_list|novel\/reading\/chapter_list|interactiveBook\/getChapterList), requires-body=1, max-size=3145728, script-path=reelshort_unlock.js, timeout=30
+ReelShort Chapter List = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getChapterList|comic\/reading\/chapter_list|novel\/reading\/chapter_list|interactiveBook\/getChapterList), requires-body=1, max-size=3145728, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
-ReelShort Book Detail = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getBookDetail|book\/getBookDetailV2|comic\/reading\/detail|novel\/reading\/detail|interactiveBook\/getBookDetail), requires-body=1, max-size=1048576, script-path=reelshort_unlock.js, timeout=30
+ReelShort Book Detail = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getBookDetail|book\/getBookDetailV2|comic\/reading\/detail|novel\/reading\/detail|interactiveBook\/getBookDetail), requires-body=1, max-size=1048576, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
-ReelShort Pay Mode = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/getPayMode, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+ReelShort Pay Mode = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/getPayMode, requires-body=1, max-size=524288, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
-ReelShort Chapter Content = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getChapterContent|comic\/reading\/chapter_detail|novel\/reading\/chapter_detail|interactiveBook\/getChapterContent), requires-body=1, max-size=3145728, script-path=reelshort_unlock.js, timeout=30
+ReelShort Chapter Content = type=http-response, pattern=^https?:\/\/[^\/]+\/(book\/getChapterContent|comic\/reading\/chapter_detail|novel\/reading\/chapter_detail|interactiveBook\/getChapterContent), requires-body=1, max-size=3145728, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
-ReelShort Start Play = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/(startPlay|startRead), requires-body=1, max-size=1048576, script-path=reelshort_unlock.js, timeout=30
+ReelShort Start Play = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/(startPlay|startRead), requires-body=1, max-size=1048576, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
 # === VIP Status Spoofing ===
-ReelShort VIP Status = type=http-response, pattern=^https?:\/\/[^\/]+\/store\/getMyVip, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+ReelShort VIP Status = type=http-response, pattern=^https?:\/\/[^\/]+\/store\/getMyVip, requires-body=1, max-size=524288, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
-ReelShort VIP Goods = type=http-response, pattern=^https?:\/\/[^\/]+\/store\/getVipGoods, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+ReelShort VIP Goods = type=http-response, pattern=^https?:\/\/[^\/]+\/store\/getVipGoods, requires-body=1, max-size=524288, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
 # === User Info (Coins + VIP) ===
-ReelShort User Info = type=http-response, pattern=^https?:\/\/[^\/]+\/user\/getUserInfo, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+ReelShort User Info = type=http-response, pattern=^https?:\/\/[^\/]+\/user\/getUserInfo, requires-body=1, max-size=524288, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
 # === Ad Unlock ===
-ReelShort Ad Unlock = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/requestAdvUnlock, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+ReelShort Ad Unlock = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/requestAdvUnlock, requires-body=1, max-size=524288, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
 # === Hall/Home Content ===
-ReelShort Hall = type=http-response, pattern=^https?:\/\/[^\/]+\/hall\/(infoV[34]|forYouV[34]|hallWaterfallPages|getBooksByTag|seeAll|continueWatching|getLeaderboard|getRank), requires-body=1, max-size=3145728, script-path=reelshort_unlock.js, timeout=30
+ReelShort Hall = type=http-response, pattern=^https?:\/\/[^\/]+\/hall\/(infoV[34]|forYouV[34]|hallWaterfallPages|getBooksByTag|seeAll|continueWatching|getLeaderboard|getRank), requires-body=1, max-size=3145728, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
 # === Exit Retain Popup Block ===
-ReelShort Retain = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/getExitRetain, requires-body=1, max-size=524288, script-path=reelshort_unlock.js, timeout=30
+ReelShort Retain = type=http-response, pattern=^https?:\/\/[^\/]+\/book\/getExitRetain, requires-body=1, max-size=524288, script-path=https://raw.githubusercontent.com/KhoaDayy/Reelshort-mitm/refs/heads/main/reelshort_unlock.js, timeout=30
 
 [MITM]
 hostname = %APPEND% *.reelshort.com, *.stardustworld.cn, *.stardustgod.com, *.epubgame.com, *-api.stardustworld.cn, *-api.stardustgod.com
